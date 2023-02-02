@@ -15,7 +15,13 @@ Some type of user interface to adjust settings will be required; it could be in 
 
 Optional parts of the project include filtering of the sound to enhance the quality and reduce noise. There are a several options such as: 
 
-1. High-pass and low-pass filter - optionally  with variable cutoff frequencies. 
+1. High-pass and low-pass filter - optionally with variable cutoff frequencies. 
 2. Sweepable filter with damping/amplification and variable Q.
 3. Adaptive filter for elimination of positive audio feedback from speaker to microphone.
+
+# Block Diagram
+
+This is only a draft diagram. More features will be added later.
+
+![Block Diagram](https://github.com/shaileshsuresh/Dynamic-Microphone-Amplification/blob/54b4486b8761edd15907d359148f4011d505058b/Diagrams/Block%20diagram.svg)
 
