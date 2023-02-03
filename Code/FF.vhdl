@@ -16,7 +16,7 @@ process(clk)
 begin
  if(rising_edge(clk)) then
   if(clk_en='1') then
-   Q <= D;
+   Q <= D;   -- Creates a flip flop
   end if;
  end if;
 end process;
