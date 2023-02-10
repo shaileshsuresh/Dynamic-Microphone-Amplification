@@ -33,6 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity DAC16 is  
       Port (
+        resetn : in std_logic;
         clk : in std_logic;
         input : in std_logic_vector(15 downto 0);
         clk_output : out std_logic;
@@ -78,24 +79,20 @@ X"38e3", X"3b85", X"3e32", X"40e9", X"43a9", X"4673", X"4946", X"4c21",
 X"4f04", X"51ef", X"54e1", X"57d9", X"5ad8", X"5ddc", X"60e6", X"63f4", 
 X"6707", X"6a1e", X"6d38", X"7054", X"7374", X"7695", X"79b8", X"7cdb"
 		);
-		
-    constant clk_period : time := 100 ns;
-    signal temp_clk : std_logic;
+	
+	signal temp_clk : std_logic;	
 begin
-    
-clk_process: process
-begin
-    temp_clk <= '0';
-    clk_output <= '0';
-    wait for clk_period/(2*256);
-    temp_clk <= '1';
-    clk_output <= '1';
-    wait for clk_period/(2*256);
-end process clk_process;   
-    
-main: process(temp_clk)
+
+main: process(clk)
 BEGIN
-    if rising_edge(temp_clk) then
+    if (resetn = '0') then
+        clk_output <= '0';
+        output <= X"0000";
+        temp_clk <= '0';
+     
+   elsif rising_edge(clk) then
+        temp_clk <= not(temp_clk);
+        clk_output <= temp_clk;
         output <= sine(i);
         i <= i+1;
         if i > 255 then
