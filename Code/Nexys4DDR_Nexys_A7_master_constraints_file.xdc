@@ -4,8 +4,8 @@
 ## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
 
 ## Clock signal
-set_property -dict { PACKAGE_PIN E3    IOSTANDARD LVCMOS33 } [get_ports { temp_clk }]; #IO_L12P_T1_MRCC_35 Sch=clk100mhz
-#create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports {CLK100MHZ}];
+set_property -dict { PACKAGE_PIN E3    IOSTANDARD LVCMOS33 } [get_ports { clk }]; #IO_L12P_T1_MRCC_35 Sch=clk100mhz
+create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports { clk }];
 
 ##Switches
 
@@ -75,7 +75,7 @@ set_property -dict { PACKAGE_PIN E3    IOSTANDARD LVCMOS33 } [get_ports { temp_c
 
 ##Buttons
 
-#set_property -dict { PACKAGE_PIN C12   IOSTANDARD LVCMOS33 } [get_ports { CPU_RESETN }]; #IO_L3P_T0_DQS_AD1P_15 Sch=cpu_resetn
+set_property -dict { PACKAGE_PIN C12   IOSTANDARD LVCMOS33 } [get_ports { resetn }]; #IO_L3P_T0_DQS_AD1P_15 Sch=cpu_resetn
 
 #set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { BTNC }]; #IO_L9P_T1_DQS_14 Sch=btnc
 #set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports { BTNU }]; #IO_L4N_T0_D05_14 Sch=btnu
@@ -98,7 +98,7 @@ set_property -dict { PACKAGE_PIN G18   IOSTANDARD LVCMOS33 } [get_ports { output
 
 ##Pmod Header JB
 
-#set_property -dict { PACKAGE_PIN D14   IOSTANDARD LVCMOS33 } [get_ports { JB[1] }]; #IO_L1P_T0_AD0P_15 Sch=jb[1]
+set_property -dict { PACKAGE_PIN D14   IOSTANDARD LVCMOS33 } [get_ports { clk_output }]; #IO_L1P_T0_AD0P_15 Sch=jb[1]
 #set_property -dict { PACKAGE_PIN F16   IOSTANDARD LVCMOS33 } [get_ports { JB[2] }]; #IO_L14N_T2_SRCC_15 Sch=jb[2]
 #set_property -dict { PACKAGE_PIN G16   IOSTANDARD LVCMOS33 } [get_ports { JB[3] }]; #IO_L13N_T2_MRCC_15 Sch=jb[3]
 #set_property -dict { PACKAGE_PIN H14   IOSTANDARD LVCMOS33 } [get_ports { JB[4] }]; #IO_L15P_T2_DQS_15 Sch=jb[4]
@@ -120,7 +120,7 @@ set_property -dict { PACKAGE_PIN E6    IOSTANDARD LVCMOS33 } [get_ports { output
 
 ##Pmod Header JD
 
-set_property -dict { PACKAGE_PIN H4    IOSTANDARD LVCMOS33 } [get_ports { clk_output }]; #IO_L21N_T3_DQS_35 Sch=jd[1]
+#set_property -dict { PACKAGE_PIN H4    IOSTANDARD LVCMOS33 } [get_ports { clk_output }]; #IO_L21N_T3_DQS_35 Sch=jd[1]
 #set_property -dict { PACKAGE_PIN H1    IOSTANDARD LVCMOS33 } [get_ports { JD[2] }]; #IO_L17P_T2_35 Sch=jd[2]
 #set_property -dict { PACKAGE_PIN G1    IOSTANDARD LVCMOS33 } [get_ports { JD[3] }]; #IO_L17N_T2_35 Sch=jd[3]
 #set_property -dict { PACKAGE_PIN G3    IOSTANDARD LVCMOS33 } [get_ports { JD[4] }]; #IO_L20N_T3_35 Sch=jd[4]
