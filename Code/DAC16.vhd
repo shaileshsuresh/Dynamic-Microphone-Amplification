@@ -82,18 +82,17 @@ X"6707", X"6a1e", X"6d38", X"7054", X"7374", X"7695", X"79b8", X"7cdb"
 	
 	signal temp_clk : std_logic;	
 begin
-
-main: process(clk)
+clk_output <= temp_clk;
+output <= sine(i);
+main: process(clk,resetn)
 BEGIN
     if (resetn = '0') then
-        clk_output <= '0';
-        output <= X"0000";
+        --clk_output <= '0';
+        --output <= X"0000";
         temp_clk <= '0';
      
    elsif rising_edge(clk) then
         temp_clk <= not(temp_clk);
-        clk_output <= temp_clk;
-        output <= sine(i);
         i <= i+1;
         if i > 255 then
             i <= 0;
